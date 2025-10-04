@@ -2,7 +2,8 @@ import os
 import re
 from tot.tasks.base import Task, DATA_PATH
 from tot.prompts.text import *
-from tot.models import gpt
+# from tot.models import gpt
+from tot.local_LLM import gpt
 
 
 class TextTask(Task):

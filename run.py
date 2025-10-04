@@ -4,7 +4,8 @@ import argparse
 
 from tot.tasks import get_task
 from tot.methods.bfs import solve, naive_solve
-from tot.models import gpt_usage
+from tot.local_LLM import gpt_usage
+# from tot.models import gpt_usage
 
 def run(args):
     task = get_task(args.task)

@@ -1,7 +1,8 @@
 import itertools
 import numpy as np
 from functools import partial
-from tot.models import gpt
+# from tot.models import gpt
+from tot.local_LLM import gpt
 
 def get_value(task, x, y, n_evaluate_sample, cache_value=True):
     value_prompt = task.value_prompt_wrap(x, y)
@@ -48,8 +49,8 @@ def get_samples(task, x, y, n_generate_sample, prompt_sample, stop):
 
 def solve(args, task, idx, to_print=True):
     global gpt
-    gpt = partial(gpt, model=args.backend, temperature=args.temperature)
-    print(gpt)
+    # gpt = partial(gpt, model=args.backend, temperature=args.temperature)
+    # print(gpt)
     x = task.get_input(idx)  # input
     ys = ['']  # current output candidates
     infos = []
@@ -89,8 +90,8 @@ def solve(args, task, idx, to_print=True):
 
 def naive_solve(args, task, idx, to_print=True):
     global gpt
-    gpt = partial(gpt, model=args.backend, temperature=args.temperature)
-    print(gpt)
+    # gpt = partial(gpt, model=args.backend, temperature=args.temperature)
+    # print(gpt)
     x = task.get_input(idx)  # input
     ys = get_samples(task, x, '', args.n_generate_sample, args.prompt_sample, stop=None)
     return ys, {}
