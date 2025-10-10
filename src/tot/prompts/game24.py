@@ -1,5 +1,5 @@
 # 5-shot
-standard_prompt = '''Use numbers and basic arithmetic operations (+ - * /) to obtain 24.
+standard_prompt = '''Use numbers and basic arithmetic operations (+ - * /) to obtain 24. Answer exactly as indicated below.
 Input: 4 4 6 8
 Answer: (4 + 8) * (6 - 4) = 24
 Input: 2 9 10 12
@@ -49,7 +49,12 @@ Input: {input}
 '''
 
 # 1-shot
-propose_prompt = '''Input: 2 8 8 14
+propose_prompt = '''The arithmetic problem Game 24 is proposed below. Continue the answer in the same way as indicated in the example. Answer exactly as indicated below.
+Generate exactly 3-5 possible next steps. Each step must be in format: 
+[number] [operation] [number] = [result] (left: [remaining numbers])
+Use only +, -, *, / operations.
+Do not include any explanations or comments.
+Input: 2 8 8 14
 Possible next steps:
 2 + 8 = 10 (left: 8 10 14)
 8 / 2 = 4 (left: 4 8 14)
@@ -63,7 +68,7 @@ Input: {input}
 Possible next steps:
 '''
 
-value_prompt = '''Evaluate if given numbers can reach 24 (sure/likely/impossible)
+value_prompt = '''Evaluate if given numbers can reach 24 (sure/likely/impossible). Answer exactly as indicated below, Use only +, -, *, / operations. do not include any explanations or comments.
 10 14
 10 + 14 = 24
 sure

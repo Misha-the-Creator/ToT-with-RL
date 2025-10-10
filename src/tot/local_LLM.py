@@ -5,7 +5,7 @@ import torch
 class Liquid_LLM:
     def __init__(self, model_id="LiquidAI/LFM2-2.6B", 
                  device_map='auto',
-                 dtype=torch.bfloat16):  # ИСПРАВЛЕНО: убраны кавычки
+                 dtype=torch.bfloat16):
         
         self.model_id = model_id
         self.device_map = device_map
@@ -66,13 +66,13 @@ class Liquid_LLM:
             
             outputs.append(decoded_output.strip())
         print("=== RESPONSE ===")
-        print(outputs)
+        print(str(outputs))
         print("================")
         return outputs
 
     def chat(self, 
              messages: List[dict], 
-             temperature: float = 0.7, 
+             temperature: float = 0.3, 
              max_tokens: int = 1000, 
              n: int = 1,
              stop: Optional[List[str]] = None,
